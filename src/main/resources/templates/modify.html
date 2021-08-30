@@ -5,7 +5,8 @@
     <title>Person Data</title>
 </head>
 <body>
-    <h1>Person Data</h1>
+    <header th:replace="layout/template :: header"></header>
+    <h2>Person Data</h2>
     <a th:href="@{/}">Return</a>
     <br/>
     <form th:action="@{/save}" method="post" th:object="${user}">
@@ -26,7 +27,10 @@
         <label >Phone</label>
         <input type="tel" name="phone" th:field="*{phone}"/>
         <br/>
-        <input type="submit" name="save" value="Save">
+            <input type="submit" name="save" value="Save">
     </form>
+    <footer th:fragment="footer">
+        <p>All rights reserved <a href="https://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a> </p>
+    </footer>
 </body>
 </html>
