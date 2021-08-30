@@ -7,11 +7,16 @@
 <body>
 
     <header th:fragment="header">
-        <h1>Client control</h1>
+        <h1 th:text="#{template.title}">Titulo</h1>
     </header>
 
     <footer th:fragment="footer">
-        <p>All rights reserved <a href="https://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a> </p>
+        <div>
+            <br/>
+            <a th:href="@{/(lang=en)}">EN</a> |
+            <a th:href="@{/(lang=es)}">ES</a>
+            <span>[[#{template.foot-page}]]<a href="https://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a> </span>
+        </div>
     </footer>
 
 </body>

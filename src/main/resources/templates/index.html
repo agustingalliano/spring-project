@@ -6,17 +6,17 @@
 </head>
 <body>
     <header th:replace="layout/template :: header"></header>
-    <a th:href="@{/add}">Create User</a>
+    <a th:href="@{/add}">[[#{user.create}]]</a>
     <br/>
     <div th:if="${users != null and !users.isEmpty()}">
         <table border="1">
             <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>[[#{user.name}]]</th>
+                <th>[[#{user.surname}]]</th>
+                <th>[[#{user.email}]]</th>
+                <th>[[#{user.phone}]]</th>
+                <th>[[#{action.edit}]]</th>
+                <th>[[#{action.delete}]]</th>
             </tr>
 
             <tr th:each="user: ${users}">
@@ -24,13 +24,13 @@
                 <td th:text="${user.surname}">Mostrar apellido</td>
                 <td th:text="${user.email}">Mostrar email</td>
                 <td th:text="${user.phone}">Mostrar telefono</td>
-                <td><a th:href="@{/edit/} + ${user.id}" th:text="Edit"></a></td>
-                <td> <a th:href="@{/delete(id=${user.id})}" th:text="Delete"></a></td>
+                <td><a th:href="@{/edit/} + ${user.id}">[[#{action.edit}]]</a></td>
+                <td> <a th:href="@{/delete(id=${user.id})}">[[#{action.delete}]]</a></td>
             </tr>
         </table>
     </div>
     <div th:if="${users == null or users.isEmpty()}">
-        La lista de personas esta vacia
+        [[#{user.list-empty}]]
     </div>
     <footer th:replace="layout/template::footer"></footer>
 </body>
